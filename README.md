@@ -173,10 +173,15 @@ User Management Automation/
 # Example Input (new_users.txt)
 
 # username;groups
+
 light; sudo, dev, www-data
+
 siyoni; sudo
+
 manoj; dev, www-data
+
 manojkumar; dev, www-data
+
 sriram; dev, www-data
 
 ---
@@ -184,6 +189,7 @@ sriram; dev, www-data
 
 2025-11-13 09:24:39 - ===== Starting User Provisioning =====
 2025-11-13 09:24:39 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
+
 2025-11-13 09:24:39 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
 
 2025-11-13 09:24:39 - Processing user: light
@@ -217,7 +223,9 @@ sriram; dev, www-data
 ---
 # password.txt
 manojkumar:wD2Ye9IU04ym
+
 sriram:7Sg8qTqhNB5D
+
 sriram:LG0UK.Pf1uH0
 
 ---
