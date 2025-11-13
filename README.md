@@ -34,7 +34,9 @@ The script reads a simple input file, creates accounts, assigns groups, sets up 
 
 #  Purpose of the Script
 
-This script automates the onboarding of Linux users using a plain text list. It performs:
+This script automates the onboarding of Linux users using a plain text list. 
+
+It performs:
 
 - Creation of new user accounts
 
