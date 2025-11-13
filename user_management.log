@@ -1,72 +1,29 @@
-2025-11-13 05:51:56 - ===== Starting User Provisioning =====
-2025-11-13 05:51:56 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
-2025-11-13 05:51:56 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
-2025-11-13 05:51:56 - Processing user: light
-2025-11-13 05:51:56 - User exists → updating
-2025-11-13 05:51:56 - Added light to 0
-2025-11-13 05:51:56 - Home fixed
-2025-11-13 05:51:56 - SKIP: No password change for existing user
-2025-11-13 05:51:56 - Processing user: siyoni
-2025-11-13 05:51:56 - User exists → updating
-2025-11-13 05:51:56 - Added siyoni to 0
-2025-11-13 05:51:56 - Home fixed
-2025-11-13 05:51:56 - SKIP: No password change for existing user
-2025-11-13 05:51:56 - Processing user: manoj
-2025-11-13 05:51:56 - User exists → updating
-2025-11-13 05:51:56 - Added manoj to 0
-2025-11-13 05:51:56 - Home fixed
-2025-11-13 05:51:56 - SKIP: No password change for existing user
-2025-11-13 05:51:56 - ===== User Provisioning Completed =====
-2025-11-13 06:20:24 - ===== Starting User Provisioning =====
-2025-11-13 06:20:24 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
-2025-11-13 06:20:24 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
-2025-11-13 06:20:24 - Processing user: light
-2025-11-13 06:20:24 - User exists → updating
-2025-11-13 06:20:24 - Added light to 0
-2025-11-13 06:20:24 - Home fixed
-2025-11-13 06:20:24 - SKIP: No password change for existing user
-2025-11-13 06:20:24 - Processing user: siyoni
-2025-11-13 06:20:24 - User exists → updating
-2025-11-13 06:20:24 - Added siyoni to 0
-2025-11-13 06:20:24 - Home fixed
-2025-11-13 06:20:24 - SKIP: No password change for existing user
-2025-11-13 06:20:24 - Processing user: manoj
-2025-11-13 06:20:24 - User exists → updating
-2025-11-13 06:20:24 - Added manoj to 0
-2025-11-13 06:20:24 - Home fixed
-2025-11-13 06:20:24 - SKIP: No password change for existing user
-2025-11-13 06:20:24 - Processing user: manojkumar
-2025-11-13 06:20:25 - Created user: manojkumar
-2025-11-13 06:20:25 - Generated password for manojkumar: wD2Ye9IU04ym
-2025-11-13 06:20:25 - Saved password to file
-2025-11-13 06:20:25 - WSL detected → password NOT applied
-2025-11-13 06:20:25 - ===== User Provisioning Completed =====
-2025-11-13 06:25:30 - ===== Starting User Provisioning =====
-2025-11-13 06:25:30 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
-2025-11-13 06:25:30 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
-2025-11-13 06:25:30 - Processing user: light
-2025-11-13 06:25:30 - User exists → updating
-2025-11-13 06:25:30 - Added light to 0
-2025-11-13 06:25:30 - Home fixed
-2025-11-13 06:25:30 - SKIP: No password change for existing user
-2025-11-13 06:25:30 - Processing user: siyoni
-2025-11-13 06:25:30 - User exists → updating
-2025-11-13 06:25:30 - Added siyoni to 0
-2025-11-13 06:25:30 - Home fixed
-2025-11-13 06:25:30 - SKIP: No password change for existing user
-2025-11-13 06:25:30 - Processing user: manoj
-2025-11-13 06:25:30 - User exists → updating
-2025-11-13 06:25:30 - Added manoj to 0
-2025-11-13 06:25:30 - Home fixed
-2025-11-13 06:25:30 - SKIP: No password change for existing user
-2025-11-13 06:25:30 - Processing user: manojkumar
-2025-11-13 06:25:30 - User exists → updating
-2025-11-13 06:25:30 - Added manojkumar to 0
-2025-11-13 06:25:30 - Home fixed
-2025-11-13 06:25:30 - SKIP: No password change for existing user
-2025-11-13 06:25:30 - Processing user: sriram
-2025-11-13 06:25:31 - Created user: sriram
-2025-11-13 06:25:31 - Generated password for sriram: 7Sg8qTqhNB5D
-2025-11-13 06:25:31 - Saved password to file
-2025-11-13 06:25:31 - WSL detected → password NOT applied
-2025-11-13 06:25:31 - ===== User Provisioning Completed =====
+2025-11-13 09:24:39 - ===== Starting User Provisioning =====
+2025-11-13 09:24:39 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
+2025-11-13 09:24:39 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
+2025-11-13 09:24:39 - Processing user: light
+2025-11-13 09:24:39 - User exists → updating
+2025-11-13 09:24:40 - Added light to 0
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+2025-11-13 09:24:40 - Processing user: siyoni
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Added siyoni to 0
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+2025-11-13 09:24:40 - Processing user: manoj
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Added manoj to 0
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+2025-11-13 09:24:40 - Processing user: manojkumar
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Added manojkumar to 0
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+2025-11-13 09:24:40 - Processing user: sriram
+2025-11-13 09:24:40 - Created user: sriram
+2025-11-13 09:24:40 - Generated password for sriram: LG0UK.Pf1uH0
+2025-11-13 09:24:40 - Saved password to file
+2025-11-13 09:24:40 - WSL detected → password NOT applied
+2025-11-13 09:24:40 - ===== User Provisioning Completed =====

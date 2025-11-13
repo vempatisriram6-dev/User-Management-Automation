@@ -170,4 +170,114 @@ User Management Automation/
     .A completion message is logged and printed.
 
 ---
+# Example Input (new_users.txt)
+
+# username;groups
+light; sudo, dev, www-data
+siyoni; sudo
+manoj; dev, www-data
+manojkumar; dev, www-data
+sriram; dev, www-data
+
+---
+# Example Terminal Output
+
+2025-11-13 09:24:39 - ===== Starting User Provisioning =====
+2025-11-13 09:24:39 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
+2025-11-13 09:24:39 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
+
+2025-11-13 09:24:39 - Processing user: light
+2025-11-13 09:24:39 - User exists → updating
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+
+2025-11-13 09:24:40 - Processing user: siyoni
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+
+2025-11-13 09:24:40 - Processing user: manoj
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+
+2025-11-13 09:24:40 - Processing user: manojkumar
+2025-11-13 09:24:40 - User exists → updating
+2025-11-13 09:24:40 - Home fixed
+2025-11-13 09:24:40 - SKIP: No password change for existing user
+
+2025-11-13 09:24:40 - Processing user: sriram
+2025-11-13 09:24:40 - Created user: sriram
+2025-11-13 09:24:40 - Generated password for sriram: LG0UK.Pf1uH0
+2025-11-13 09:24:40 - Saved password to file
+2025-11-13 09:24:40 - WSL detected → password NOT applied
+
+2025-11-13 09:24:40 - ===== User Provisioning Completed =====
+
+---
+# password.txt
+manojkumar:wD2Ye9IU04ym
+sriram:7Sg8qTqhNB5D
+sriram:LG0UK.Pf1uH0
+
+---
+# Example Use Cases
+
+-Automating onboarding for new developers.
+
+-DevOps and system administration training.
+
+-Bulk user creation in lab environments.
+
+-Quickly preparing users for testing environments.
+
+---
+
+# Security Considerations
+
+1. Plaintext Password Storage
+
+   Passwords are stored in plaintext because the project requires it.
+
+Mitigations:
+
+    .File permissions set to 600.
+
+    .Only root can access the file.
+
+    .Consider using a secrets manager for production use.
+
+2. Password Usage
+
+   You may force password changes on first login using:
+
+    .chage -d 0 <username>
+
+
+3. Password Generation
+
+    Passwords are generated with high entropy using /dev/urandom.
+
+4. Logging
+
+    .Logs do not contain passwords.
+
+    .Consider configuring log rotation for long-term usage.
+
+5. Root Privileges
+
+    .The script modifies system accounts and must be run with sudo.
+
+
+---
+
+# Running the Script
+
+cd "/mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation"
+
+chmod +x create_users.sh
+
+sudo ./create_users.sh new_users.txt
+
+---
 
