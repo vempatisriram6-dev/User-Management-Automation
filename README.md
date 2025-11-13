@@ -318,7 +318,8 @@ sudo ./create_users.sh new_users.txt
 ```
 Name: vempati sriram  
 Project: User Management Automation  
-GitHub Repository: https://github.com/vempatisriram6-dev/User-Management-Automation
+GitHub Repository: https://github.com/vempatisriram6-dev/User-Management-Automation.git
+
 ```
 ---
 
