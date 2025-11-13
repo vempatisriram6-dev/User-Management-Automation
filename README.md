@@ -247,7 +247,7 @@ sriram; dev, www-data
 2025-11-13 09:24:40 - ===== User Provisioning Completed =====
 
 ---
-# password.txt
+# passwords.txt
 
 🗸 manojkumar:wD2Ye9IU04ym
 
