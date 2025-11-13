@@ -103,19 +103,19 @@ User Management Automation/
 ---
 # Step-by-Step Explanation
 
-1. # Sanity Checks
+1. ### Sanity Checks
 
     ● Ensures the script is run as root.
 
     ● Checks that the input file exists.
 
-2. # Prepare Secure Locations
+2. ### Prepare Secure Locations
 
     ● Creates the project directory (if missing).
 
     ● Creates password and log files with permission 600.
 
-3.  # Process the Input File
+3.  ### Process the Input File
 
     ● Reads the file line by line.
     
@@ -125,7 +125,7 @@ User Management Automation/
 
     ● Removes whitespace.
 
-4. # Validate Username
+4. ### Validate Username
 
     ● Must follow the pattern:
    
@@ -133,11 +133,11 @@ User Management Automation/
 
     ● Invalid usernames are skipped and logged.
 
-6. # Create Missing Groups
+6. ### Create Missing Groups
 
     ● Runs groupadd for groups that do not already exist.
 
-7. # Create or Update User
+7. ### Create or Update User
 
     ● If the user exists:
 
@@ -155,7 +155,7 @@ User Management Automation/
         
         
 
-8. # Generate Password
+8. ### Generate Password
 
      ● Creates a random 12-character password using /dev/urandom.
 
@@ -169,11 +169,11 @@ User Management Automation/
 
          ● Password is applied via chpasswd.
 
-9. # Logging
+9. ### Logging
 
      ● Every event is logged with timestamps in user_management.log.
 
-10. # Completion
+10. ### Completion
 
     ● A completion message is logged and printed.
 
@@ -270,7 +270,7 @@ sriram; dev, www-data
 
 # Security Considerations
 
-1. # Plaintext Password Storage
+1. ### Plaintext Password Storage
 
    Passwords are stored in plaintext because the project requires it.
 
@@ -282,24 +282,24 @@ Mitigations:
 
     ● Consider using a secrets manager for production use.
 
-2. # Password Usage
+2. ### Password Usage
 
    You may force password changes on first login using:
 
     ● change -d 0 <username>
 
 
-3. # Password Generation
+3. ### Password Generation
 
     Passwords are generated with high entropy using /dev/urandom.
 
-4. # Logging
+4. ### Logging
 
     ● Logs do not contain passwords.
 
     ● Consider configuring log rotation for long-term usage.
 
-5. # Root Privileges
+5. ### Root Privileges
 
     ● The script modifies system accounts and must be run with sudo.
 
@@ -316,9 +316,9 @@ sudo ./create_users.sh new_users.txt
 ---
 # Author
 ```
-**Name:** vempati sriram  
-**Project:** User Management Automation  
-**GitHub Repository:** https://github.com/vempatisriram6-dev/User-Management-Automation
+Name: vempati sriram  
+Project: User Management Automation  
+GitHub Repository: https://github.com/vempatisriram6-dev/User-Management-Automation
 ```
 ---
 
