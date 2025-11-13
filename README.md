@@ -3,8 +3,8 @@
 This project automates the creation and management of Linux user accounts using a Bash script.  
 It is designed to work seamlessly on:
 
-- ✔ WSL (Windows Subsystem for Linux)  
-- ✔ Real Linux servers (Ubuntu/Debian)
+-  ► WSL (Windows Subsystem for Linux)  
+-  ► Real Linux servers (Ubuntu/Debian)
 
 The script reads a simple input file, creates accounts, assigns groups, sets up home directories, generates passwords, and stores logs and passwords inside a Windows-friendly project folder.
 
@@ -12,23 +12,23 @@ The script reads a simple input file, creates accounts, assigns groups, sets up 
 
 #  Features
 
-✔ Bulk user creation 
+✦ Bulk user creation 
 
-✔ Automatic group creation 
+✦ Automatic group creation 
 
-✔ Home directory setup  
+✦ Home directory setup  
 
-✔ Secure 12-character password generation
+✦ Secure 12-character password generation
 
-✔ Passwords saved locally (WSL-safe)  
+✦ Passwords saved locally (WSL-safe)  
 
-✔ Detailed timestamped logging  
+✦ Detailed timestamped logging  
 
-✔ WSL auto-detection  
+✦ WSL auto-detection  
 
-✔ Safe re-run behavior (idempotent)
+✦ Safe re-run behavior (idempotent)
 
-✔ Handles already-existing users gracefully  
+✦ Handles already-existing users gracefully  
 
 ---
 
@@ -63,7 +63,7 @@ It is useful for:
 
 1. Input format uses the pattern:
 
-    . username;group1,group2,group3
+     ● username;group1,group2,group3
 
 2. Blank lines and lines starting with # are ignored.
 
@@ -73,106 +73,112 @@ It is useful for:
 
 5. Existing users:
 
-    . Supplementary groups are added safely without removing existing memberships
+    ● Supplementary groups are added safely without removing existing memberships
 
-    . Home directory permissions are validated
+    ● Home directory permissions are validated
 
-    . Passwords are not overwritten
+    ● Passwords are not overwritten
 
 6.Passwords and logs are stored with restrictive file permissions.
 
 7.The script requires root privileges. 
 
 ---
+
 # Project Structure
 
+```text
 User Management Automation/
-
 │
-├── create_users.sh                          # Main automation script
-├── new_users.txt              # Input user list
-├── README.md                  # Documentation
+├── create_users.sh              # Main automation script
+├── new_users.txt                # Input file containing usernames and groups
+├── README.md                    # Documentation for the project
 │
-├── passwords.txt              # Generated passwords (output)
-├── user_management.log        # Timestamped logs (output)
+├── passwords.txt                # Output: generated passwords for new users
+└── user_management.log          # Output: timestamped log of all operations
+```
 
+---
 # Step-by-Step Explanation
 
-1. Sanity Checks
+1. # Sanity Checks
 
-    .Ensures the script is run as root.
+    ● Ensures the script is run as root.
 
-    .Checks that the input file exists.
+    ● Checks that the input file exists.
 
-2. Prepare Secure Locations
+2. # Prepare Secure Locations
 
-    .Creates the project directory (if missing).
+    ● Creates the project directory (if missing).
 
-    .Creates password and log files with permission 600.
+    ● Creates password and log files with permission 600.
 
-3.Process the Input File
+3.  # Process the Input File
 
-    .Reads the file line by line.
+    ● Reads the file line by line.
+    
+    ● Skips blank lines and lines starting with #.
 
-    .Skips blank lines and lines starting with #.
+    ● Extracts the username and group list.
 
-    .Extracts the username and group list.
+    ● Removes whitespace.
 
-    .Removes whitespace.
+4. # Validate Username
 
-4. Validate Username
-
-    .Must follow the pattern:
+    ● Must follow the pattern:
+   
        ^[a-z_][a-z0-9_-]{0,30}$
 
-    .Invalid usernames are skipped and logged.
+    ● Invalid usernames are skipped and logged.
 
-5. Create Missing Groups
+6. # Create Missing Groups
 
-    .Runs groupadd for groups that do not already exist.
+    ● Runs groupadd for groups that do not already exist.
 
-6. Create or Update User
+7. # Create or Update User
 
-    .If the user exists:
+    ● If the user exists:
 
-        .Adds missing groups using usermod -a -G.
+        ● Adds missing groups using usermod -a -G.
 
-        .Creates or fixes home directory and permissions.
+        ● Creates or fixes home directory and permissions.
 
-        .Skips password changes.
+        ● Skips password changes.
 
-    .If the user does not exist:
+    ● If the user does not exist:
 
-        .Creates the user with home directory and shell.
+        ● Creates the user with home directory and shell.
 
-        .Adds supplementary groups.
+        ● Adds supplementary groups.
+        
+        
 
-7. Generate Password
+8. # Generate Password
 
-    .Creates a random 12-character password using /dev/urandom.
+     ● Creates a random 12-character password using /dev/urandom.
 
-    .Saves it to passwords.txt.
+     ● Saves it to passwords.txt.
 
-    .On WSL:
+     ● On WSL:
 
-        .Password is not applied to the system.
+         ● Password is not applied to the system.
 
-    .On Linux:
+     ● On Linux:
 
-        .Password is applied via chpasswd.
+         ● Password is applied via chpasswd.
 
-8. Logging
+9. # Logging
 
-    .Every event is logged with timestamps in user_management.log.
+     ● Every event is logged with timestamps in user_management.log.
 
-9. Completion
+10. # Completion
 
-    .A completion message is logged and printed.
+    ● A completion message is logged and printed.
 
 ---
 # Example Input (new_users.txt)
 
-# username;groups
+#username;groups
 
 light; sudo, dev, www-data
 
@@ -185,107 +191,132 @@ manojkumar; dev, www-data
 sriram; dev, www-data
 
 ---
-# Example Terminal Output
+# Example Output
 
 2025-11-13 09:24:39 - ===== Starting User Provisioning =====
+
 2025-11-13 09:24:39 - Password file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/passwords.txt
 
 2025-11-13 09:24:39 - Log file path: /mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation/user_management.log
 
 2025-11-13 09:24:39 - Processing user: light
+
 2025-11-13 09:24:39 - User exists → updating
+
 2025-11-13 09:24:40 - Home fixed
+
 2025-11-13 09:24:40 - SKIP: No password change for existing user
 
 2025-11-13 09:24:40 - Processing user: siyoni
+
 2025-11-13 09:24:40 - User exists → updating
+
 2025-11-13 09:24:40 - Home fixed
+
 2025-11-13 09:24:40 - SKIP: No password change for existing user
 
 2025-11-13 09:24:40 - Processing user: manoj
+
 2025-11-13 09:24:40 - User exists → updating
+
 2025-11-13 09:24:40 - Home fixed
+
 2025-11-13 09:24:40 - SKIP: No password change for existing user
 
+
 2025-11-13 09:24:40 - Processing user: manojkumar
+
 2025-11-13 09:24:40 - User exists → updating
+
 2025-11-13 09:24:40 - Home fixed
+
 2025-11-13 09:24:40 - SKIP: No password change for existing user
 
 2025-11-13 09:24:40 - Processing user: sriram
+
 2025-11-13 09:24:40 - Created user: sriram
+
 2025-11-13 09:24:40 - Generated password for sriram: LG0UK.Pf1uH0
+
 2025-11-13 09:24:40 - Saved password to file
+
 2025-11-13 09:24:40 - WSL detected → password NOT applied
 
 2025-11-13 09:24:40 - ===== User Provisioning Completed =====
 
 ---
 # password.txt
-manojkumar:wD2Ye9IU04ym
 
-sriram:7Sg8qTqhNB5D
+🗸 manojkumar:wD2Ye9IU04ym
 
-sriram:LG0UK.Pf1uH0
+🗸 sriram:7Sg8qTqhNB5D
+
+🗸 sriram:LG0UK.Pf1uH0
 
 ---
 # Example Use Cases
 
--Automating onboarding for new developers.
+✪ Automating onboarding for new developers.
 
--DevOps and system administration training.
+✪ DevOps and system administration training.
 
--Bulk user creation in lab environments.
+✪ Bulk user creation in lab environments.
 
--Quickly preparing users for testing environments.
+✪ Quickly preparing users for testing environments.
 
 ---
 
 # Security Considerations
 
-1. Plaintext Password Storage
+1. # Plaintext Password Storage
 
    Passwords are stored in plaintext because the project requires it.
 
 Mitigations:
 
-    .File permissions set to 600.
+    ● File permissions set to 600.
 
-    .Only root can access the file.
+    ● Only root can access the file.
 
-    .Consider using a secrets manager for production use.
+    ● Consider using a secrets manager for production use.
 
-2. Password Usage
+2. # Password Usage
 
    You may force password changes on first login using:
 
-    .chage -d 0 <username>
+    ● change -d 0 <username>
 
 
-3. Password Generation
+3. # Password Generation
 
     Passwords are generated with high entropy using /dev/urandom.
 
-4. Logging
+4. # Logging
 
-    .Logs do not contain passwords.
+    ● Logs do not contain passwords.
 
-    .Consider configuring log rotation for long-term usage.
+    ● Consider configuring log rotation for long-term usage.
 
-5. Root Privileges
+5. # Root Privileges
 
-    .The script modifies system accounts and must be run with sudo.
+    ● The script modifies system accounts and must be run with sudo.
 
 
 ---
 
 # Running the Script
 
+```bash
 cd "/mnt/c/Users/vempa/OneDrive/Desktop/User Management Automation"
-
 chmod +x create_users.sh
-
 sudo ./create_users.sh new_users.txt
-
+```
+---
+# Author
+```
+**Name:** vempati sriram  
+**Project:** User Management Automation  
+**GitHub Repository:** https://github.com/vempatisriram6-dev/User-Management-Automation
+```
 ---
 
