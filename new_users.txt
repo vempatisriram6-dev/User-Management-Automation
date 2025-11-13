@@ -1,0 +1,6 @@
+# username;groups
+light; sudo, dev, www-data
+siyoni; sudo
+manoj; dev,www-data
+manojkumar; dev,www-data
+sriram; dev,WWW-data
