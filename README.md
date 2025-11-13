@@ -63,7 +63,7 @@ It is useful for:
 
 1. Input format uses the pattern:
 
-    username;group1,group2,group3
+    . username;group1,group2,group3
 
 2. Blank lines and lines starting with # are ignored.
 
@@ -73,11 +73,11 @@ It is useful for:
 
 5. Existing users:
 
-    .Supplementary groups are added safely without removing existing memberships
+    . Supplementary groups are added safely without removing existing memberships
 
-    .Home directory permissions are validated
+    . Home directory permissions are validated
 
-    .Passwords are not overwritten
+    . Passwords are not overwritten
 
 6.Passwords and logs are stored with restrictive file permissions.
 
@@ -89,13 +89,85 @@ It is useful for:
 User Management Automation/
 
 │
-├── create_users.sh            # Main automation script
+├── create_users.sh                          # Main automation script
 ├── new_users.txt              # Input user list
 ├── README.md                  # Documentation
 │
 ├── passwords.txt              # Generated passwords (output)
 ├── user_management.log        # Timestamped logs (output)
 
+# Step-by-Step Explanation
+
+1. Sanity Checks
+
+    .Ensures the script is run as root.
+
+    .Checks that the input file exists.
+
+2. Prepare Secure Locations
+
+    .Creates the project directory (if missing).
+
+    .Creates password and log files with permission 600.
+
+3.Process the Input File
+
+    .Reads the file line by line.
+
+    .Skips blank lines and lines starting with #.
+
+    .Extracts the username and group list.
+
+    .Removes whitespace.
+
+4. Validate Username
+
+    .Must follow the pattern:
+       ^[a-z_][a-z0-9_-]{0,30}$
+
+    .Invalid usernames are skipped and logged.
+
+5. Create Missing Groups
+
+    .Runs groupadd for groups that do not already exist.
+
+6. Create or Update User
+
+    .If the user exists:
+
+        .Adds missing groups using usermod -a -G.
+
+        .Creates or fixes home directory and permissions.
+
+        .Skips password changes.
+
+    .If the user does not exist:
+
+        .Creates the user with home directory and shell.
+
+        .Adds supplementary groups.
+
+7. Generate Password
+
+    .Creates a random 12-character password using /dev/urandom.
+
+    .Saves it to passwords.txt.
+
+    .On WSL:
+
+        .Password is not applied to the system.
+
+    .On Linux:
+
+        .Password is applied via chpasswd.
+
+8. Logging
+
+    .Every event is logged with timestamps in user_management.log.
+
+9. Completion
+
+    .A completion message is logged and printed.
+
 ---
 
-# User-Management-Automation
